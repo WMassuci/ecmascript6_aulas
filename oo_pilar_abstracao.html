@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OO - Pilar da Abstração</title>
+</head>
+<body>
+  <script>
+
+    //class = representa o modelo de entidade ou objeto
+
+    class ContaBancaria{
+      //(atributos -> caracteristicas):
+      //agencia
+      //numeroConta
+      //saldo
+      //limite
+      constructor(){ //basicamente no constructor, definimos os atributos... e tambem necessitamos do atributo 'This' Que tem a inteligencia de manter conectado ao contexto do objeto
+        this.agencia = 1578
+        this.numeroConta = 86507
+        this.saldo = 50
+        this.limite = 450
+      }
+
+
+      //Ações (metodos):
+      depositar(valorDeposito){
+        this.saldo += valorDeposito
+      }
+
+      sacar(saque){
+        this.saldo -= saque
+      }
+
+      consultarSaldo(){
+        return this.saldo
+      }
+    }
+
+
+    //isso seria a instancia de uma classe
+    let x = new ContaBancaria() //new indica que quero transformar a 'contaBancaria' em objeto
+    //posso cliar dois objetos, que um nao vai alterar o outro, vao ser distintos
+    let y = new ContaBancaria()
+
+    console.log(x.consultarSaldo())
+    x.depositar(2500)
+    console.log(x.consultarSaldo())
+    x.sacar(1500)
+    console.log(x.consultarSaldo())
+
+    console.log(y.consultarSaldo())
+    y.depositar(6000)
+    console.log(y.consultarSaldo())
+    y.sacar(3000)
+    console.log(y.consultarSaldo())
+  </script>
+</body>
+</html>
