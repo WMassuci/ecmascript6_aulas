@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste 1 Pilar da Abstração</title>
+</head>
+<body>
+  <script>
+    /*Cadastro estacionamento:
+    //identidade -> x = new vaga
+    //atributos -> id vaga, nome carro, placa
+    //metodos -> NovoCarro, consultarCarro, retirarCarro*/
+
+    class cadastroEstacionamento{
+      constructor(){
+        this.idVaga = '01'
+        this.nomeCarro = 'Fiat 500'
+        this.placa = 'DTQ1478'
+      }
+
+      consultarCarro(){
+        return `Nome: ${this.nomeCarro}, Placa: ${this.placa}, Vaga: ${this.idVaga}`
+      }
+
+      novoCarro(novoCarro,novaPlaca, novaVaga){
+        this.nomeCarro = novoCarro
+        this.placa = novaPlaca
+        this.idVaga = novaVaga
+      }
+
+      retirarCarro(){
+        this.nomeCarro = ''
+        this.placa = ''
+        this.idVaga = ''
+      }
+
+    }
+
+    let x = new cadastroEstacionamento()
+
+    x.novoCarro('Celta', 'DQP7924', '02')
+    console.log(x.consultarCarro())
+    x.retirarCarro()
+    console.log(x.consultarCarro())
+    x.novoCarro('Onix', 'ABF8514','10')
+    console.log(x.consultarCarro())
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste 2 Pilar Abstração</title>
+</head>
+<body>
+  <script>
+    //Cadastro de Estudante Universidade
+    //atributos -> Nome do estudante, Id do estudante, Curso, periodo
+    //metodos -> ConsultarEstudante, removerEstudante
+
+
+    class cadastroEstudante{
+      constructor(){
+        this.nomeEstudante = 'Paulo'
+        this.idEstudante = 1405
+        this.nomeCurso = 'Analise de Sistemas'
+        this.periodo = 'Noturno'
+      }
+
+      consultarEstudante(){
+        return `Nome Estudante: ${this.nomeEstudante}
+          Id do Estudante: ${this.idEstudante}
+          Nome do Curso: ${this.nomeCurso}
+          Periodo: ${this.periodo}
+        `
+      }
+
+      removerEstudante(){
+        this.nomeEstudante = ''
+        this.idEstudante = ''
+        this.nomeCurso = ''
+        this.periodo = ''
+      }
+
+      novoCadastro(novoEstudante, novoId, novoCurso, novoPeriodo){
+        this.nomeEstudante = novoEstudante
+        this.idEstudante = novoId
+        this.nomeCurso = novoCurso
+        this.periodo = novoPeriodo
+      }
+    }
+
+    let x = new cadastroEstudante()
+
+    console.log(x.consultarEstudante())
+    x.removerEstudante()
+    console.log(x.consultarEstudante())
+    x.novoCadastro('Gabriel Silva', 1002, 'Administração', 'Diurno')
+    console.log(x.consultarEstudante())
+  </script>
+</body>
+</html>
