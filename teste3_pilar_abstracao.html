@@ -12,21 +12,47 @@
     //atributos -> nome do cliente, pedido, endereço de entrega, forma de pagamento
     //metodos -> receberPedido, removerPedido
 
-    class cadastroPedidoLanche{
+    class cadastroPedido{
       constructor(){
-        this.nomeCliente = 'José'
-
-        this.nomeRua = 'Rua Manaus'
-        this.numeroResidencia = 140
-        this.nomeBairro = 'Jardim Zenit'
-        this.nomeCidade = 'Campinas'
-
-        this.pedido = 'X-Burguer'
+        this.nomeCliente = 'Pedro'
+        this.idPedido = 1478
+        this.enderecoCliente = 'Jardim Nova America'
         this.formaPagamento = 'Dinheiro'
       }
 
-      
+      consultarPedido(){
+        return `Nome Cliente: ${this.nomeCliente},
+          Id do Pedido: ${this.idPedido},
+          Endereço Cliente: ${this.enderecoCliente},
+          Forma de Pagamento: ${this.formaPagamento}
+        `
+      }
+
+      removerPedido(){
+        this.nomeCliente = ''
+        this.idPedido = ''
+        this.enderecoCliente = ''
+        this.formaPagamento = ''
+      }
+
+      novoPedido(novoCliente, novoId, novoEndereco, novaFormaPagamento){
+        this.nomeCliente = novoCliente
+        this.idPedido = novoId
+        this.enderecoCliente = novoEndereco
+        this.formaPagamento = novaFormaPagamento
+      }
     }
+
+    let x = new cadastroPedido()
+    let y = new cadastroPedido()
+
+    console.log(x.consultarPedido())
+    x.removerPedido()
+    console.log(x.removerPedido())
+    x.novoPedido('Wander', 1522, 'Campinas', 'Cartao Debito')
+    console.log(x.consultarPedido())
+
+    console.log(y.consultarPedido())
   </script>
 </body>
 </html>
